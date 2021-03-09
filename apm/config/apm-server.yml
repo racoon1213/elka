@@ -1,2 +1,13 @@
 output.elasticsearch:
   hosts: ['0.0.0.0:9200']
+  bulk_max_size: 200
+  #worker: 4
+
+queue.mem.events: 1024
+queue.mem.flush.min_events: 200
+
+setup.template.name: "apm-server"
+setup.template.pattern: "apm-*"
+setup.template.settings:
+        #index.number_of_shards: 3
+        codec: best_compression
